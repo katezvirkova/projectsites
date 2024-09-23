@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+
+{% block content %}
+<h1>Останні новини</h1>
+<ul>
+    {% for news in latest_news %}
+    <li>
+        <a href="{% url 'news_detail' news.id %}">{{ news.title }}</a><br>
+        <small>Автор: {{ news.author.first_name }} {{ news.author.last_name }} | Дата: {{ news.publication_date }}</small><br>
+        <p>{{ news.content|truncatewords:30 }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'news_list' %}" class="btn btn-primary">Читати більше</a>
+{% endblock %}
