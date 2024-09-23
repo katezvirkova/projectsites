@@ -1,0 +1,27 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>{{ news.title }}</h1>
+<p><small>Автор: {{ news.author.first_name }} {{ news.author.last_name }} | Дата: {{ news.publication_date }}</small></p>
+
+
+    {% if news.title == 'Легкий та смачний кавовий торт' %}
+    <img src="{% static 'images/img.png' %}" alt="Легкий та смачний кавовий торт">
+{% endif %}
+ 
+    {% if news.title == 'Кіт зізнався в таємницях людства' %}
+    <img src="{% static 'images/img_1.png' %}" alt="Кіт зізнався в таємницях людства">
+{% endif %}
+    
+    {% if news.title == 'Чому кіт нявкає по ночах' %}
+    <img src="{% static 'images/img_2.png' %}" alt="Чому кіт нявкає по ночах">
+{% endif %} 
+    
+    {% if news.title == 'Піца' %}
+    <img src="{% static 'images/img_3.png' %}" alt="Піца">
+{% endif %}    
+      
+
+<p>{{ news.content }}</p>
+{% endblock %}
