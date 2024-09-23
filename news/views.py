@@ -6,7 +6,7 @@ def home(request):
     return render(request, 'news/home.html', {'latest_news': latest_news})
 
 def news_list(request):
-    all_news = News.objects.order_by('-publication_date')[:6]
+    all_news = News.objects.order_by('-publication_date')[:8]
     return render(request, 'news/news_list.html', {'all_news': all_news})
 
 def news_detail(request, new_id):
